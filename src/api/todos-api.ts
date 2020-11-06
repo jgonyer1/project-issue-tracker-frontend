@@ -1,10 +1,10 @@
 import { apiEndpoint } from '../config'
-import { Todo } from '../types/Todo';
-import { CreateTodoRequest } from '../types/CreateTodoRequest';
+import { Project } from '../types/Project';
+import { CreateProjectRequest } from '../types/CreateProjectRequest';
 import Axios from 'axios'
 import { UpdateTodoRequest } from '../types/UpdateTodoRequest';
 
-export async function getTodos(idToken: string): Promise<Todo[]> {
+export async function getProjects(idToken: string): Promise<Project[]> {
   const response = await Axios.get(`${apiEndpoint}/projects`, {
     headers: {
       'Content-Type': 'application/json',
@@ -12,20 +12,20 @@ export async function getTodos(idToken: string): Promise<Todo[]> {
     },
   })
   console.log("WHAT WE GOT BACK: ", response.data);
-  return response.data.items
+  return response.data.projects
 }
 
-export async function createTodo(
+export async function createProject(
   idToken: string,
-  newTodo: CreateTodoRequest
-): Promise<Todo> {
-  const response = await Axios.post(`${apiEndpoint}/todos`,  JSON.stringify(newTodo), {
+  newProject: CreateProjectRequest
+): Promise<Project> {
+  const response = await Axios.post(`${apiEndpoint}/projects`,  JSON.stringify(newProject), {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${idToken}`
     }
   })
-  return response.data.item
+  return response.data.project
 }
 
 export async function patchTodo(
