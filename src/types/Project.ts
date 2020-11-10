@@ -1,4 +1,6 @@
+import { Issue } from './Issue'
 export interface Project {
   id: string
-  name: string
+  name: string,
+  issues: Issue[]
 }

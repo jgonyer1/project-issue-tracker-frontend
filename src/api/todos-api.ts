@@ -28,6 +28,20 @@ export async function createProject(
   return response.data.project
 }
 
+export async function getProject(
+  idToken: string,
+  projectId: string
+): Promise<Project> {
+  const response = await Axios.get(`${apiEndpoint}/projects/${projectId}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${idToken}`
+    }
+  })
+  return response.data.project
+}
+
+
 export async function patchTodo(
   idToken: string,
   todoId: string,

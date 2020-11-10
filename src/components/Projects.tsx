@@ -45,7 +45,7 @@ export class Projects extends React.PureComponent<ProjectsProps, ProjectsState> 
 
 
   onEditButtonClick = (projectId: string) => {
-    this.props.history.push(`/projects/${projectId}/edit`)
+    this.props.history.push(`/projects/${projectId}`)
   }
 
   onProjectCreate = async (event: React.ChangeEvent<HTMLButtonElement>) => {
@@ -62,35 +62,6 @@ export class Projects extends React.PureComponent<ProjectsProps, ProjectsState> 
       alert('Todo creation failed')
     }
   }
-
-  // onTodoDelete = async (todoId: string) => {
-  //   try {
-  //     await deleteTodo(this.props.auth.getIdToken(), todoId)
-  //     this.setState({
-  //       todos: this.state.todos.filter(todo => todo.todoId != todoId)
-  //     })
-  //   } catch {
-  //     alert('Todo deletion failed')
-  //   }
-  // }
-
-  // onTodoCheck = async (pos: number) => {
-  //   try {
-  //     const todo = this.state.todos[pos]
-  //     await patchTodo(this.props.auth.getIdToken(), todo.todoId, {
-  //       name: todo.name,
-  //       dueDate: todo.dueDate,
-  //       done: !todo.done
-  //     })
-  //     this.setState({
-  //       todos: update(this.state.todos, {
-  //         [pos]: { done: { $set: !todo.done } }
-  //       })
-  //     })
-  //   } catch {
-  //     alert('Todo deletion failed')
-  //   }
-  // }
 
   async componentDidMount() {
     try {

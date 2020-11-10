@@ -7,6 +7,7 @@ import { EditTodo } from './components/EditTodo'
 import { LogIn } from './components/LogIn'
 import { NotFound } from './components/NotFound'
 import { Projects } from './components/Projects'
+import { EditProject } from './components/EditProject'
 
 export interface AppProps {}
 
@@ -97,10 +98,10 @@ export default class App extends Component<AppProps, AppState> {
         />
 
         <Route
-          path="/issues/:projectId/edit"
+          path="/projects/:projectId"
           exact
           render={props => {
-            return <EditTodo {...props} auth={this.props.auth} />
+            return <EditProject {...props} auth={this.props.auth} />
           }}
         />
 
